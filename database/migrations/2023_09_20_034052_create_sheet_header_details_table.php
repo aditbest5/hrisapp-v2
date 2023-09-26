@@ -1,0 +1,40 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateSheetHeaderDetailsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('sheet_header_details', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('id_sheet_header');
+            $table->string('kode_employee');
+            $table->string('kode');
+            $table->datetime('waktu_awal');
+            $table->datetime('waktu_akhir');
+            $table->string('pekerjaan');
+            $table->string('keterangan');
+            $table->string('status');
+            $table->integer('id_user');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('sheet_header_details');
+    }
+}
