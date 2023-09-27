@@ -1,32 +1,67 @@
-<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.html">Start Bootstrap</a>
-            <!-- Sidebar Toggle-->
-            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
-            <!-- Navbar Search-->
-            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-                <div class="input-group">
-                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
-                </div>
-            </form>
-            <!-- Navbar-->
-            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Settings</a></li>
-                        <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-                        <li><hr class="dropdown-divider" /></li>
-                        <li>
-                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}</a>
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            @csrf
-                                        </form>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
+<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark h-auto">
+    <!-- Navbar Brand-->
+    <a class="navbar-brand ps-3 mt-2" href="index.html"><img src={{ asset('Arneva.png') }} width="50px" height="50px"
+            alt="Arneva Logo">
+        Arneva</a>
+    <!-- Sidebar Toggle-->
+    <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
+            class="fas fa-bars"></i></button>
+    <!-- Sapaan -->
+    <div class="d-flex flex-column ms-5">
+        <h1 class="fs-6 text-light">Hello {{ Auth::user()->name }} 👋</h1>
+        <h1 class="fs-6 text-secondary">Welcome back, we miss your coming</h1>
+    </div>
+    <!-- Navbar Search-->
+    <form class="d-none d-md-inline-block form-inline ms-5 me-auto my-2 my-md-0">
+        <div class="input-group">
+            <input class="form-control bg-black border-0 text-light" type="text" placeholder="Search for..."
+                aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+            <button class="btn btn-dark" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+        </div>
+    </form>
+    <div class="d-flex flex-row justify-content-around bd-highlight">
+        <div class="me-sm-3 d-flex flex-row">
+            <div class="p-2 bd-highlight"><svg width="24" height="25" viewBox="0 0 24 25" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M12 23.7603C11.31 23.7603 10.66 23.3958 10.2 22.7603L8.7 20.677C8.67 20.6353 8.55 20.5833 8.5 20.5728H8C3.83 20.5728 1.25 19.3958 1.25 13.5416V8.33325C1.25 3.72909 3.58 1.302 8 1.302H16C20.42 1.302 22.75 3.72909 22.75 8.33325V13.5416C22.75 18.1458 20.42 20.5728 16 20.5728H15.5C15.42 20.5728 15.35 20.6145 15.3 20.677L13.8 22.7603C13.34 23.3958 12.69 23.7603 12 23.7603ZM8 2.8645C4.42 2.8645 2.75 4.60409 2.75 8.33325V13.5416C2.75 18.2499 4.3 19.0103 8 19.0103H8.5C9.01 19.0103 9.59 19.3124 9.9 19.7395L11.4 21.8228C11.75 22.302 12.25 22.302 12.6 21.8228L14.1 19.7395C14.43 19.2812 14.95 19.0103 15.5 19.0103H16C19.58 19.0103 21.25 17.2708 21.25 13.5416V8.33325C21.25 4.60409 19.58 2.8645 16 2.8645H8Z"
+                        fill="white" />
+                    <path
+                        d="M12 12.5001C11.44 12.5001 11 12.0313 11 11.4584C11 10.8855 11.45 10.4167 12 10.4167C12.55 10.4167 13 10.8855 13 11.4584C13 12.0313 12.56 12.5001 12 12.5001Z"
+                        fill="white" />
+                    <path
+                        d="M16 12.5001C15.44 12.5001 15 12.0313 15 11.4584C15 10.8855 15.45 10.4167 16 10.4167C16.55 10.4167 17 10.8855 17 11.4584C17 12.0313 16.56 12.5001 16 12.5001Z"
+                        fill="white" />
+                    <path
+                        d="M8 12.5001C7.44 12.5001 7 12.0313 7 11.4584C7 10.8855 7.45 10.4167 8 10.4167C8.55 10.4167 9 10.8855 9 11.4584C9 12.0313 8.56 12.5001 8 12.5001Z"
+                        fill="white" />
+                </svg></div>
+            <div class="p-2 bd-highlight"><svg width="24" height="25" viewBox="0 0 24 25" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M12 10.9583C11.59 10.9583 11.25 10.6041 11.25 10.177V6.70825C11.25 6.28117 11.59 5.927 12 5.927C12.41 5.927 12.75 6.28117 12.75 6.70825V10.177C12.75 10.6145 12.41 10.9583 12 10.9583Z"
+                        fill="white" />
+                    <path
+                        d="M12.0208 21.198C9.44084 21.198 6.87084 20.7709 4.42084 19.9167C3.51084 19.6042 2.82084 18.9272 2.52084 18.073C2.22084 17.2188 2.32084 16.2397 2.81084 15.3855L4.08084 13.1772C4.36084 12.6876 4.61084 11.7709 4.61084 11.198V9.0105C4.61084 4.75008 7.93084 1.29175 12.0208 1.29175C16.1108 1.29175 19.4308 4.75008 19.4308 9.0105V11.198C19.4308 11.7605 19.6808 12.6876 19.9608 13.1772L21.2308 15.3855C21.7008 16.198 21.7808 17.1667 21.4708 18.0522C21.1608 18.9376 20.4808 19.6147 19.6208 19.9167C17.1708 20.7813 14.6008 21.198 12.0208 21.198ZM12.0208 2.86466C8.76084 2.86466 6.11084 5.62508 6.11084 9.02092V11.2084C6.11084 12.0522 5.79084 13.2709 5.37084 13.9897L4.10084 16.2084C3.84084 16.6563 3.78084 17.1355 3.93084 17.5522C4.08084 17.9688 4.42084 18.2813 4.90084 18.448C9.50084 20.0417 14.5608 20.0417 19.1608 18.448C19.5908 18.3022 19.9208 17.9688 20.0708 17.5313C20.2308 17.0938 20.1808 16.6147 19.9508 16.2084L18.6808 14.0001C18.2608 13.2813 17.9408 12.0626 17.9408 11.2188V9.03133C17.9308 5.62508 15.2808 2.86466 12.0208 2.86466Z"
+                        fill="white" />
+                    <path
+                        d="M11.9999 23.8542C10.9299 23.8542 9.87992 23.3959 9.11992 22.6042C8.35992 21.8126 7.91992 20.7188 7.91992 19.6042H9.41992C9.41992 20.3126 9.69992 21.0001 10.1799 21.5001C10.6599 22.0001 11.3199 22.2917 11.9999 22.2917C13.4199 22.2917 14.5799 21.0834 14.5799 19.6042H16.0799C16.0799 21.948 14.2499 23.8542 11.9999 23.8542Z"
+                        fill="white" />
+                </svg></div>
+        </div>
+        <div class="p-2 d-flex flex-row bd-highlight"><svg width="20" height="21" viewBox="0 0 20 21"
+                fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M12.7164 19.4687H7.28307C3.19141 19.4687 1.44141 17.6312 1.44141 13.335V13.2212C1.44141 9.33624 2.89974 7.46374 6.16641 7.13999C6.49974 7.11374 6.81641 7.37624 6.84974 7.73499C6.88307 8.09374 6.63307 8.41749 6.28307 8.45249C3.66641 8.70624 2.69141 10.0012 2.69141 13.23V13.3437C2.69141 16.905 3.89141 18.165 7.28307 18.165H12.7164C16.1081 18.165 17.3081 16.905 17.3081 13.3437V13.23C17.3081 9.98374 16.3164 8.68874 13.6497 8.45249C13.3081 8.41749 13.0497 8.10249 13.0831 7.74374C13.1164 7.38499 13.4081 7.11374 13.7581 7.14874C17.0747 7.44624 18.5581 9.32749 18.5581 13.2387V13.3525C18.5581 17.6312 16.8081 19.4687 12.7164 19.4687Z"
+                    fill="white" />
+                <path
+                    d="M10 13.7812C9.65833 13.7812 9.375 13.4837 9.375 13.125V3.16748C9.375 2.80873 9.65833 2.51123 10 2.51123C10.3417 2.51123 10.625 2.80873 10.625 3.16748V13.125C10.625 13.4837 10.3417 13.7812 10 13.7812Z"
+                    fill="white" />
+                <path
+                    d="M12.7922 5.77501C12.6339 5.77501 12.4755 5.71376 12.3505 5.58251L10.0005 3.11501L7.65052 5.58251C7.40885 5.83626 7.00885 5.83626 6.76719 5.58251C6.52552 5.32876 6.52552 4.90876 6.76719 4.65501L9.55885 1.72376C9.80052 1.47001 10.2005 1.47001 10.4422 1.72376L13.2339 4.65501C13.4755 4.90876 13.4755 5.32876 13.2339 5.58251C13.1172 5.71376 12.9505 5.77501 12.7922 5.77501Z"
+                    fill="white" />
+            </svg>
+            <h6 class="text-light">Export</h6>
+        </div>
+    </div>
+</nav>

@@ -11,6 +11,8 @@
 |
 */
 
+use App\Http\Controllers\HomeController;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -35,6 +37,20 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
     Route::post('password/reset', 'Auth\ResetPasswordController@reset');
     Route::get('/admin/home', 'HomeController@index')->name('home');
+
+    //Data Routes..
+    Route::get('departmen', 'HomeController@department')->name('department');
+    Route::get('division', 'HomeController@division')->name('division');
+    Route::get('job-title', 'HomeController@jobTitle')->name('job-title');
+    Route::get('status', 'HomeController@status')->name('status');
+    Route::get('allowance', 'HomeController@department')->name('allowance');
+    Route::get('leave-form', 'HomeController@leaveForm')->name('leave-form');
+    Route::post('create-department', 'DepartmentController@store');
+    Route::get('/edit/{id}', 'DepartmentController@edit');
+
+
+    //Employee Routes..
+    Route::get('list-employee', 'HomeController@list');
 
     //schedule
     Route::get('/admin/schedule', 'ScheduleController@index');
