@@ -14,7 +14,7 @@
     <!-- Navbar Search-->
     <form class="d-none d-md-inline-block form-inline ms-5 me-auto my-2 my-md-0">
         <div class="input-group">
-            <input class="form-control bg-black border-0 text-light" type="text" placeholder="Search for..."
+            <input class="form-control bg-transparent border-0 text-light" type="text" placeholder="Search for..."
                 aria-label="Search for..." aria-describedby="btnNavbarSearch" />
             <button class="btn btn-dark" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
         </div>

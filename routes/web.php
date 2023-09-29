@@ -10,9 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-use App\Http\Controllers\HomeController;
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -36,18 +33,24 @@ Route::group(['middleware' => 'web'], function () {
     Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail');
     Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
     Route::post('password/reset', 'Auth\ResetPasswordController@reset');
-    Route::get('/admin/home', 'HomeController@index')->name('home');
+    Route::get('/admin/home', 'HomeController@index')->name('home'); // Route Dashboard / Home
 
     //Data Routes..
-    Route::get('departmen', 'HomeController@department')->name('department');
-    Route::get('division', 'HomeController@division')->name('division');
+    Route::get('department', 'HomeController@department')->name('department'); // Route Department
+    Route::get('division', 'HomeController@division')->name('division'); // Route Division
     Route::get('job-title', 'HomeController@jobTitle')->name('job-title');
     Route::get('status', 'HomeController@status')->name('status');
     Route::get('allowance', 'HomeController@department')->name('allowance');
     Route::get('leave-form', 'HomeController@leaveForm')->name('leave-form');
-    Route::post('create-department', 'DepartmentController@store');
-    Route::get('/edit/{id}', 'DepartmentController@edit');
-
+    Route::post('create-department', 'DepartmentController@store'); // Route create department API
+    Route::get('/edit/department={id}', 'DepartmentController@edit'); // Route edit department
+    Route::get('add-department', 'DepartmentController@index')->name('add-department'); // Route add department
+    Route::patch('/update-department/{id}', 'DepartmentController@update'); // Route update department API
+    Route::delete('/delete-department/{id}', 'DepartmentController@destroy'); // Route delete department API
+    Route::get('add-division', 'DivisionController@index');
+    Route::post('create-division', 'DivisionController@store');
+    Route::delete('delete-division/{id}', 'DivisionController@destroy');
+    Route::patch('/update-division/{id}', 'DivisionController@update');
 
     //Employee Routes..
     Route::get('list-employee', 'HomeController@list');
