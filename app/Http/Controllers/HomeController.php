@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Department;
 use App\Division;
+use App\Employee;
+use App\JobTitle;
 use DateTime;
 use Illuminate\Http\Request;
 
@@ -39,12 +41,20 @@ class HomeController extends Controller
     public function division()
     {
         $divisions = Division::all();
-        return view('DataPages/division', compact('divisions'));
+        return view('DataPages.division', compact('divisions'));
     }
     public function jobTitle()
     {
-        return view('DataPages/jobTitle');
+        $jobTitles = JobTitle::all();
+        return view('DataPages.jobTitle', compact('jobTitles'));
     }
+
+    public function listEmployee()
+    {
+        $employees = Employee::all();
+        return view('EmployeePages.list', compact('employees'));
+    }
+
     public function status()
     {
         return view('DataPages/status');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\JobTitle;
 use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
@@ -14,6 +15,8 @@ class EmployeeController extends Controller
     public function index()
     {
         //
+        $jobTitles = JobTitle::all();
+        return view('EmployeePages.addList', compact('jobTitles'));
     }
 
     /**

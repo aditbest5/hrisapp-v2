@@ -24,9 +24,12 @@ class CreateEmployeesTable extends Migration
             $table->date('tanggal_masuk');
             $table->date('tgl_lahir');
             $table->string('alamat');
-            $table->integer('id_kelurahan');
-            $table->integer('id_kecamatan');
-            $table->integer('id_provinsi');
+            $table->bigInteger('id_kelurahan')->unsigned();
+            $table->bigInteger('id_kecamatan')->unsigned();
+            $table->bigInteger('id_provinsi')->unsigned();
+            $table->foreign('id_kelurahan')->references('id')->on('districts')->onDelete('cascade');
+            $table->foreign('id_kecamatan')->references('id')->on('regencies')->onDelete('cascade');
+            $table->foreign('id_provinsi')->references('id')->on('provinces')->onDelete('cascade');
             $table->string('kode_pos');
             $table->integer('gaji');
             $table->string('pendidikan');
@@ -39,7 +42,8 @@ class CreateEmployeesTable extends Migration
             $table->string('status_karyawan');
             $table->string('akun_bank');
             $table->string('nama_akun');
-            $table->integer('id_user');
+            $table->bigInteger('id_user')->unsigned();
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

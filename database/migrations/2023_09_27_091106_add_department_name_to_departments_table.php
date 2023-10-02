@@ -27,7 +27,6 @@ class AddDepartmentNameToDepartmentsTable extends Migration
     public function down()
     {
         Schema::table('departments', function (Blueprint $table) {
-            $table->string('nama');
             //
         });
     }

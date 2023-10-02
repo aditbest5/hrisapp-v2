@@ -47,13 +47,20 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('add-department', 'DepartmentController@index')->name('add-department'); // Route add department
     Route::patch('/update-department/{id}', 'DepartmentController@update'); // Route update department API
     Route::delete('/delete-department/{id}', 'DepartmentController@destroy'); // Route delete department API
-    Route::get('add-division', 'DivisionController@index');
-    Route::post('create-division', 'DivisionController@store');
-    Route::delete('delete-division/{id}', 'DivisionController@destroy');
-    Route::patch('/update-division/{id}', 'DivisionController@update');
+    Route::get('add-division', 'DivisionController@index'); // Route add division
+    Route::post('create-division', 'DivisionController@store'); // Route create division API
+    Route::delete('delete-division/{id}', 'DivisionController@destroy'); // Route delete division API
+    Route::get('/edit/division={id}', 'DivisionController@edit'); // Route edit division
+    Route::patch('/update-division/{id}', 'DivisionController@update'); // Route update division API
+    Route::get('add-job-title', 'JobTitleController@index')->name('add-job-title'); // Route add division
+    Route::post('/create-job-title', 'JobTitleController@store')->name('create-job-title'); // Route create job title API
+    Route::get('/edit-job-title/{id}', 'JobTitleController@edit')->name('edit-job-title'); // Route edit job title
+    Route::patch('/update-job-title/{id}', 'JobTitleController@update'); // Route update job title API
+    Route::delete('/delete-job-title/{id}', 'JobTitleController@destroy'); // Route delete job API
 
     //Employee Routes..
-    Route::get('list-employee', 'HomeController@list');
+    Route::get('/list-employee', 'HomeController@listEmployee')->name('list-employee'); // Route list employee
+    Route::get('/add-employee', 'EmployeeController@index')->name('add-employee'); // Route add employee
 
     //schedule
     Route::get('/admin/schedule', 'ScheduleController@index');

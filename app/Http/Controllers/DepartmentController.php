@@ -44,23 +44,24 @@ class DepartmentController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'code' => 'required',
-            'name' => 'required',
+            'department_code' => 'required',
+            'department_name' => 'required',
             'desc' => 'required',
-            'status' => 'required'
         ]);
+        $id_user = auth()->user()->id;
         $status = $request->status;
+
         if ($status) {
             $status = 1;
         } else {
             $status = 0;
         }
         Department::findorFail($id)->update([
-            "kode" => $request->code,
-            "nama" => $request->name,
+            "kode" => $request->department_code,
+            "nama" => $request->department_name,
             "keterangan" => $request->desc,
             "status" => $status,
-            "id_user" => $id
+            "id_user" => $id_user
         ]);
         return redirect()->route('department')->with(['success' => 'Data Berhasil Diubah!']);
     }

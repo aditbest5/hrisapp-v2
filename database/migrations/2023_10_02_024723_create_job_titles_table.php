@@ -4,7 +4,9 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDivisionsTable extends Migration
+use function PHPUnit\Framework\once;
+
+class CreateJobTitlesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +15,10 @@ class CreateDivisionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('divisions', function (Blueprint $table) {
+        Schema::create('job_titles', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('id_department')->unsigned();
-            $table->foreign('id_department')->references('id')->on('departments')->onDelete('cascade');
+            $table->bigInteger('id_division')->unsigned();
+            $table->foreign('id_division')->references('id')->on('divisions')->onDelete('cascade');
             $table->string('kode');
             $table->string('nama');
             $table->string('keterangan');
@@ -34,6 +36,6 @@ class CreateDivisionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('divisions');
+        Schema::dropIfExists('job_titles');
     }
 }

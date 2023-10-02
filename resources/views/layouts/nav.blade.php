@@ -152,7 +152,7 @@
                 <div class="collapse" id="collapseEmployee" aria-labelledby="headingOne"
                     data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="layout-static.html"><svg width="20" height="19"
+                        <a class="nav-link" href={{ route('list-employee') }}><svg width="20" height="19"
                                 viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M10 6.0835C14.6024 6.0835 18.3334 4.96421 18.3334 3.5835C18.3334 2.20278 14.6024 1.0835 10 1.0835C5.39765 1.0835 1.66669 2.20278 1.66669 3.5835C1.66669 4.96421 5.39765 6.0835 10 6.0835Z"

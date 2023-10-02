@@ -18,4 +18,9 @@ class Division extends Model
     {
         return $this->belongsTo('App\Department', 'id_department');
     }
+
+    public function jobtitle()
+    {
+        return $this->hasMany('App\JobTitle', 'id_division');
+    }
 }
