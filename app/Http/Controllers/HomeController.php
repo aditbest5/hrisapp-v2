@@ -49,8 +49,10 @@ class HomeController extends Controller
         return view('DataPages.jobTitle', compact('jobTitles'));
     }
 
-    public function listEmployee()
+    public function listEmployee(Request $request)
     {
+        $request->session()->forget('employee.form1');
+        $request->session()->forget('employee.form2');
         $employees = Employee::all();
         return view('EmployeePages.list', compact('employees'));
     }

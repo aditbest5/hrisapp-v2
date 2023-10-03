@@ -61,6 +61,28 @@ Route::group(['middleware' => 'web'], function () {
     //Employee Routes..
     Route::get('/list-employee', 'HomeController@listEmployee')->name('list-employee'); // Route list employee
     Route::get('/add-employee', 'EmployeeController@index')->name('add-employee'); // Route add employee
+    Route::get('/previous-form2', 'EmployeeController@step2')->name('previous.form2');
+    Route::post('/employee/form1', 'EmployeeController@form1')->name('employee.form1');
+    Route::get('/add-employee2', 'EmployeeController@step2')->name('employee.step2');
+    Route::post('/employee/form2', 'EmployeeController@form2')->name('employee.form2');
+    Route::post('/employee/form3', 'EmployeeController@form3')->name('employee.form3');
+    Route::get('/add-employee3', 'EmployeeController@step3')->name('employee.step3');
+    Route::get('/previous-form1', 'EmployeeController@previousStep1')->name('previous.form1');
+    Route::delete('/delete-employee/{id}', 'EmployeeController@destroy');
+    Route::get('/edit-employee/{id}', 'EmployeeController@edit')->name('edit-employee');
+    Route::get('/edit-employee2/{id}', 'EmployeeController@editStep2')->name('edit-employee2');
+    Route::get('/edit-employee3/{id}', 'EmployeeController@editStep3')->name('edit-employee3');
+    Route::post('/edit-employee/form1', 'EmployeeController@editForm1')->name('employee.editForm1');
+    Route::post('/edit-employee/form2', 'EmployeeController@editForm2')->name('employee.editForm2');
+    Route::post('/edit-employee/form3', 'EmployeeController@editForm3')->name('employee.editForm3');
+    Route::get('/previous-editForm1/{id}', 'EmployeeController@previousEdit1')->name('previous.editForm1');
+    Route::get('/previous-editForm2/{id}', 'EmployeeController@previousEdit2')->name('previous.editForm2');
+
+
+
+
+
+
 
     //schedule
     Route::get('/admin/schedule', 'ScheduleController@index');

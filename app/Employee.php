@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Employee extends Model
 {
     //
-    protected $fillable = ['id_jobtitle', 'kode', 'nik', 'kk', 'nama', 'keterangan', 'tanggal_masuk', 'tgl_lahir', 'alamat', 'id_kelurahan', 'id_kecamatan', 'id_provinsi', 'kode_pos', 'gaji', 'pendidikan', 'status_nikah', 'hp', 'kontak_darurat', 'tgl_kontrak', 'tgl_keluar', 'alasan_keluar', 'status_karyawan', 'akun_bank', 'nama_akun', 'id_user'];
+    protected $fillable = ['id_jobtitle', 'kode', 'nik', 'kk', 'nama', 'email', 'keterangan', 'tanggal_masuk', 'tgl_lahir', 'alamat', 'id_kelurahan', 'id_kecamatan', 'id_provinsi', 'kode_pos', 'gaji', 'pendidikan', 'status_nikah', 'hp', 'hp_darurat', 'kontak_darurat', 'tgl_kontrak', 'tgl_keluar', 'alasan_keluar', 'status_karyawan', 'akun_bank', 'nama_akun', 'id_user'];
 
     public function district()
     {
